@@ -19,7 +19,7 @@ code {
     justify-content: space-between;
     flex-direction: column;
     align-items: revert;
-    padding: 10px 30px;
+    padding: 20px 30px;
     .logo {
       width: 120px;
       position: relative;
@@ -93,4 +93,16 @@ code {
       }
     }
   }
+}
+
+.cross {
+  position: absolute;
+    top: 30%;
+    right: 6%;
+}
+
+.add-employees {
+  position: absolute;
+  top: 87%;
+  left: 3%;
 }

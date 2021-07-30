@@ -9,11 +9,6 @@ function App() {
     <Router>
       <div className="mainPage">
         <div className="header">
-          <div className="logo">
-            {/* <Link to={process.env.PUBLIC_URL + '/'}>
-              <span className="back-logo">Back</span>
-            </Link> */}
-          </div>
           <nav>
             <ul>
               <li>

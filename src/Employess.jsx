@@ -13,7 +13,7 @@ function Employess() {
       title: "Имя",
       dataIndex: "first_name",
       key: "first_name",
-      render: (text, item) => <p>{`${item.first_name} ${item.last_name}`}</p>,
+      render: (text, item) => <div><p>{`${item.first_name} ${item.last_name}`}</p><Button className="cross">удалить сотрудника</Button></div>,
     },
     // {
     //   title: "Модули",
@@ -53,6 +53,14 @@ function Employess() {
   console.log(dataForDrawer);
   const dispatch = useDispatch();
 
+  // const onPlus = (id) => {
+  //   dispatch(plusCartItem(id));
+  // };
+
+  // const onMinus = (id) => {
+  //   dispatch(minusCartItem(id));
+  // };
+
   useEffect(() => {
     const loadData = async () => {
       dispatch(getEmployees());
@@ -60,9 +68,12 @@ function Employess() {
     loadData();
   }, []);
 
+  console.log(employees);
+
   return (
     <div className="table">
       <Table columns={columns} dataSource={employees} />
+      <Button className='add-employees'>Добавить сотрудника</Button>
       {/* <ProgressDrawer
         dataForDrawer={dataForDrawer}
         visible={visible}
