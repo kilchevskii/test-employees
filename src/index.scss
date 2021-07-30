@@ -1,0 +1,96 @@
+@import 'antd/dist/antd.css';
+body {
+  margin: 0;
+  font-family: Encode Sans SC, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.mainPage {
+  background: rgb(7, 80, 74);
+  height: 100vh;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: revert;
+    padding: 10px 30px;
+    .logo {
+      width: 120px;
+      position: relative;
+      height: 85px;
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+        height: 80%;
+        border-radius: 40px;
+        opacity: 1;
+        transition: 0.3s;
+        &:hover {
+          opacity: 0.9;
+          transition: opacity 0.3s ease-in-out;
+        }
+        &:active {
+          opacity: 0.4;
+        }
+      }
+        a {
+          text-decoration: none;
+          span {
+            color: #f7efef;
+            text-decoration: none;
+            font-size: 20px;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+              color: darken(rgb(247, 239, 239), 15%);
+            }
+            &:active {
+              color: darken(rgb(247, 239, 239), 35%);
+            }
+          }
+      }
+    }
+  }
+  .banner {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    img {
+      border-radius: 30px;
+    }
+  }
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    ul {
+      display: flex;
+      width: 240px;
+      justify-content: space-between;
+      // padding-right: 30px;
+      list-style: none;
+      a {
+        color: rgb(247, 239, 239);
+        text-decoration: none;
+        font-size: 20px;
+        transition: 0.3s;
+        &:hover {
+          color: darken(rgb(247, 239, 239), 15%);
+        }
+        &:active {
+          color: darken(rgb(247, 239, 239), 35%);
+        }
+      }
+    }
+  }
+}
