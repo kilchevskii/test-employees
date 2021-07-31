@@ -3,7 +3,7 @@ import {
   GET_EMPLOYEES_SUCCESS,
   EMPLOYEES_FAILED,
   ADD_EMPLOYEE,
-  REMOVE_EMPLOYEE
+  REMOVE_EMPLOYEE,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -24,9 +24,16 @@ export default function employeesReducer(state = initialState, action) {
         error: action.message,
       };
     case ADD_EMPLOYEE:
-      return { ...state, employees: [...state.employees, action.payload] };
+      return {
+        ...state,
+        success: true,
+        data: [action.payload.data, ...state.data],
+      };
     case REMOVE_EMPLOYEE:
-      return { ...state, employees: [...state.employees.filter(employee => employee.id !== action.payload)] };
+      return {
+        ...state.data,
+        data: [...state.data.data.filter(({ id }) => id !== action.payload)],
+      };
 
     default:
       return state;
