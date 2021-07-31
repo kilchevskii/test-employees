@@ -1,28 +1,34 @@
 import {
-    GET_EMPLOYEES_REQUESTED,
-    GET_EMPLOYEES_SUCCESS,
-    EMPLOYEES_FAILED,
-  } from "../actions/actionTypes";
-  
-  const initialState = {
-    data: [],
-    loading: false,
-    error: null,
-  };
-  
-  export default function employeesReducer(state = initialState, action) {
-    switch (action.type) {
-      case GET_EMPLOYEES_REQUESTED:
-        return { ...state, loading: true };
-      case GET_EMPLOYEES_SUCCESS:
-        return { ...state, loading: false, data: action.payload };
-        case EMPLOYEES_FAILED:
-              return {
-                  ...state,
-                  error: action.message,
-              };        
-  
-      default:
-        return state;
-    }
+  GET_EMPLOYEES_REQUESTED,
+  GET_EMPLOYEES_SUCCESS,
+  EMPLOYEES_FAILED,
+  ADD_EMPLOYEE,
+  REMOVE_EMPLOYEE
+} from "../actions/actionTypes";
+
+const initialState = {
+  data: [],
+  loading: false,
+  error: null,
+};
+
+export default function employeesReducer(state = initialState, action) {
+  switch (action.type) {
+    case GET_EMPLOYEES_REQUESTED:
+      return { ...state, loading: true };
+    case GET_EMPLOYEES_SUCCESS:
+      return { ...state, loading: false, data: action.payload };
+    case EMPLOYEES_FAILED:
+      return {
+        ...state,
+        error: action.message,
+      };
+    case ADD_EMPLOYEE:
+      return { ...state, employees: [...state.employees, action.payload] };
+    case REMOVE_EMPLOYEE:
+      return { ...state, employees: [...state.employees.filter(employee => employee.id !== action.payload)] };
+
+    default:
+      return state;
   }
+}
