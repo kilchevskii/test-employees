@@ -5,7 +5,7 @@ import { getEmployees, createEmployee, removeEmployee } from "..//src/App/redux/
 import axios from "axios";
 
 function Employess() {
-  const employees = useSelector((state) => state.employees.data.data);
+  const employees = useSelector((state) => state.employees.data);
   const [users, setUsers] = useState({});
   const columns = [
     {
@@ -14,19 +14,20 @@ function Employess() {
       // key: "first_name",
       render: (item) => (
         <div>
-          <p>{`${item.first_name} ${item.last_name}`}</p>
-          <Button onClick={() => removeEmploye()} className="cross">удалить сотрудника</Button>
+          <p>{`${item?.first_name} ${item?.last_name}`}</p>
+          <Button onClick={() => removeEmploye(item?.id)} className="cross">удалить сотрудника</Button>
         </div>
       ),
     },
   ];
   const dispatch = useDispatch();
   const addEmploye = (name) => {
-    const employ = {
-      name,
+    const data = {
+      first_name: name,
+      last_name: name,
       id: Date.now(),
     };
-    dispatch(createEmployee(name));
+    dispatch(createEmployee(data));
   };
   const removeEmploye = (id) => {
     dispatch(removeEmployee(id));
@@ -34,7 +35,6 @@ function Employess() {
   useEffect(() => {
       dispatch(getEmployees());
   }, [dispatch]);
-  console.log(employees);
   return (
     <div className="table">
       {<>

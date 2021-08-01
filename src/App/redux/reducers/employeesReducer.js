@@ -31,8 +31,8 @@ export default function employeesReducer(state = initialState, action) {
       };
     case REMOVE_EMPLOYEE:
       return {
-        ...state.data,
-        data: [...state.data.data.filter(({ id }) => id !== action.payload)],
+        ...state,
+        data: [...state.data.filter(({ id }) => id !== action.payload)],
       };
 
     default:

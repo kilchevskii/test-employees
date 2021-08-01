@@ -4,7 +4,7 @@ const apiUrl = "https://reqres.in/api/users?per_page=12";
 const getEmployees = () =>
    axios
       .get(apiUrl)
-      .then((result) => result.data)
+      .then((result) => result.data.data)
       .catch((error) => {
          throw error;
       });
