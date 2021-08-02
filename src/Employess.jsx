@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { Layout, Menu, Tag, Button, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getEmployees, createEmployee, removeEmployee } from "..//src/App/redux/actions/actionEmpoyees";
+import Demo from "./CreateFormEmploye";
 import axios from "axios";
+import CreateFormEmploye from "./CreateFormEmploye";
+import CreateEmployee from "./CreateEmployee";
 
 function Employess() {
   const employees = useSelector((state) => state.employees.data);
@@ -21,27 +24,19 @@ function Employess() {
     },
   ];
   const dispatch = useDispatch();
-  const addEmploye = (name) => {
-    const data = {
-      first_name: name,
-      last_name: name,
-      id: Date.now(),
-    };
-    dispatch(createEmployee(data));
-  };
+
   const removeEmploye = (id) => {
     dispatch(removeEmployee(id));
  };
   useEffect(() => {
       dispatch(getEmployees());
   }, [dispatch]);
+
   return (
     <div className="table">
       {<>
         <Table columns={columns} dataSource={employees} />
-        <Button onClick={() => addEmploye(prompt())} className="add-employees">
-          Добавить сотрудника
-        </Button>
+        <CreateEmployee />
         </>
       }
     </div>
