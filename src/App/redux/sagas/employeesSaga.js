@@ -20,6 +20,7 @@ function* fetchEmployees() {
   }
 }
 
+
 function* employeesSaga() {
     yield takeEvery('GET_EMPLOYEES_REQUESTED', fetchEmployees);
  }

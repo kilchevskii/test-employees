@@ -34,6 +34,7 @@ export default function employeesReducer(state = initialState, action) {
         ...state,
         data: [...state.data.filter(({ id }) => id !== action.payload)],
       };
+      
 
     default:
       return state;
