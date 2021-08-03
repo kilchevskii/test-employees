@@ -1,23 +1,36 @@
-import { useState, useEffect } from "react";
-import { Layout, Menu, Tag, Button, Table } from "antd";
+import { useEffect } from "react";
+import {  Button, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { getEmployees, createEmployee, removeEmployee } from "..//src/App/redux/actions/actionEmpoyees";
-import Demo from "./CreateFormEmploye";
-import axios from "axios";
-import CreateFormEmploye from "./CreateFormEmploye";
+import { getEmployees, removeEmployee } from "../../redux/actions/actionEmpoyees";
 import CreateEmployee from "./CreateEmployee";
 
 function Employess() {
   const employees = useSelector((state) => state.employees.data);
-  const [users, setUsers] = useState({});
   const columns = [
     {
       title: "Имя",
-      // dataIndex: "first_name",
-      // key: "first_name",
+      key: 'first_name',
       render: (item) => (
         <div>
-          <p>{`${item?.first_name} ${item?.last_name}`}</p>
+          <p>{`${item?.first_name}`}</p>
+        </div>
+      ),
+    },
+    {
+      title: "Фамилия",
+      key: 'last_name',
+      render: (item) => (
+        <div>
+          <p>{`${item?.last_name}`}</p>
+        </div>
+      ),
+    },
+    {
+      title: "Почта",
+      key: 'email',
+      render: (item) => (
+        <div>
+          <p>{`${item?.email}`}</p>
           <Button onClick={() => removeEmploye(item?.id)} className="cross">удалить сотрудника</Button>
         </div>
       ),
@@ -35,7 +48,7 @@ function Employess() {
   return (
     <div className="table">
       {<>
-        <Table columns={columns} dataSource={employees} />
+        <Table  columns={columns} dataSource={employees} />
         <CreateEmployee />
         </>
       }

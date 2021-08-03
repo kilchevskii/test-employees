@@ -1,4 +1,4 @@
-@import 'antd/dist/antd.css';
+@import "antd/dist/antd.css";
 body {
   margin: 0;
   font-family: Encode Sans SC, sans-serif;
@@ -13,7 +13,8 @@ code {
 
 .mainPage {
   background: rgb(7, 80, 74);
-  height: 110vh;
+  height: 100vh;
+  position: relative;
   .header {
     display: flex;
     justify-content: space-between;
@@ -42,23 +43,23 @@ code {
           opacity: 0.4;
         }
       }
-        a {
+      a {
+        text-decoration: none;
+        span {
+          color: #f7efef;
           text-decoration: none;
-          span {
-            color: #f7efef;
-            text-decoration: none;
-            font-size: 20px;
-            transition: 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            &:hover {
-              color: darken(rgb(247, 239, 239), 15%);
-            }
-            &:active {
-              color: darken(rgb(247, 239, 239), 35%);
-            }
+          font-size: 20px;
+          transition: 0.3s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          &:hover {
+            color: darken(rgb(247, 239, 239), 15%);
           }
+          &:active {
+            color: darken(rgb(247, 239, 239), 35%);
+          }
+        }
       }
     }
   }
@@ -97,12 +98,62 @@ code {
 
 .cross {
   position: absolute;
-    top: 30%;
-    right: 6%;
+  top: 30%;
+  right: 6%;
 }
 
 .add-employees {
   position: absolute;
   top: 87%;
   left: 3%;
+}
+
+.ant-form {
+  width: 530px;
+  background: linear-gradient(90deg, #cfecd0, #a0cea7, #9ec0db);
+  margin-top: -40px;
+  margin-left: 60px;
+  border: 1px solid #fff;
+  position: absolute;
+  top: 70%;
+  border-radius: 30px;
+  .ant-form-item {
+    width: 100%;
+    padding-top: 10px;
+    .ant-input {
+      width: 90%;
+      border-radius: 6px;
+    }
+  }
+}
+.ant-btn-primary {
+  position: absolute;
+  top: -10px;
+  right: 35px;
+  border-radius: 5px;
+}
+
+.ant-btn-default {
+  position: absolute;
+  top: -10px;
+  left: 0px;
+  border-radius: 5px;
+}
+
+.create-employee {
+  position: absolute;
+  top: 88%;
+  left: 5%;
+}
+.ant-form-item-label > label {
+  font-family: Encode Sans SC, sans-serif;
+  color: #07504a;
+}
+
+.ant-spin-nested-loading {
+  display: flex;
+  justify-content: center;
+  .ant-spin-container {
+    width: 90%;
+  }
 }

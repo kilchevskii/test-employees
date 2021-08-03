@@ -26,17 +26,17 @@ export default function employeesReducer(state = initialState, action) {
     case ADD_EMPLOYEE:
       return {
         ...state,
-        success: true,
-        data: [action.payload.data, ...state.data],
+        loading: true,
+        data: [action.payload, ...state.data],
       };
     case REMOVE_EMPLOYEE:
       return {
         ...state,
         data: [...state.data.filter(({ id }) => id !== action.payload)],
       };
-      
 
     default:
       return state;
   }
 }
+  
